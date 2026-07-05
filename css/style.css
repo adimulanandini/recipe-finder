@@ -160,14 +160,16 @@ input {
     position: sticky;
     top: 0;
     z-index: 100;
-    background-color: rgba(var(--bg-card) == #ffffff ? 255 : 29, var(--bg-card) == #ffffff ? 255 : 36, var(--bg-card) == #ffffff ? 255 : 50, 0.85);
+    background-color: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-color);
     transition: background-color var(--transition-normal), border-color var(--transition-normal);
 }
-
-/* Dynamic Navbar Background via CSS variables override in JS if needed */
+[data-theme="dark"] .navbar {
+    background-color: rgba(29, 36, 50, 0.85);
+}
+/* Dynamic Navbar Background*/
 .navbar-container {
     max-width: 1280px;
     margin: 0 auto;
