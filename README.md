@@ -44,7 +44,7 @@ recipe-finder/
 │   └── style.css
 ├── js/
 │   ├── app.js          # Core Application Logic & Event Handlers
-│   └── recipes.js      # Local JSON Recipe Dataset (20 items)
+│   └── recipes.js      # Local JSON Recipe Dataset (22 items)
 ├── images/
 │   ├── logo.png        # Generated Brand Logo Asset
 │   └── default-recipe.png # Fallback/Default Recipe Placeholder Image
@@ -64,25 +64,12 @@ This project is structured specifically to show off solid frontend core concepts
 
 ---
 
-## 🖥️ How to Run & Open in IntelliJ IDEA
+## 🖥️ How to Run the Project
 
-### 1. Opening in IntelliJ IDEA
-Because this is a pure static web project, it does not require complex build tools:
-1. Open **IntelliJ IDEA**.
-2. Go to **File** -> **Open...**
-3. Navigate to the project root directory: `C:\Users\adimu\.gemini\antigravity\scratch\recipe-finder`
-4. Click **OK**. IntelliJ will open it as a project. You can now browse the files and code.
+This is a static frontend project built with HTML, CSS, and JavaScript, so no installation or build tools are required.
 
-### 2. Running the Application
-There are a couple of simple ways to view and interact with the application:
-* **Option A (Built-in IDE Preview)**: Inside IntelliJ IDEA, open `index.html`. Hover over the top-right corner of the editor window and click one of the browser icons (Chrome, Firefox, Safari) to launch a local browser preview.
-* **Option B (Local Server - Recommended)**:
-  Open a terminal inside the project folder and start a quick static server.
-  - **Python**: Run `python -m http.server 8000` and open `http://localhost:8000` in your browser.
-  - **Node (npm)**: Run `npx http-server` or `npx browser-sync start --server --files "css/*.css, js/*.js, *.html"` to enable live-reload.
-
----
-
-## 📝 Resume Bullet Point
-
-> **Smart Recipe Finder (Frontend Developer Project)**: Designed and developed a responsive, premium recipe-finding single-page application using vanilla HTML5, CSS3 (variables, grid, flexbox), and ES6+ JavaScript. Features interactive search-by-ingredients, category buttons, detail modals with step check-off logic, and a full favorites catalog persistent across reloads via browser `LocalStorage`. Built responsive light/dark themes with cubic-bezier transition states.
+1. Open the project in IntelliJ IDEA.
+2. Open the `index.html` file.
+3. Click the browser icon in the top-right corner of the editor (Chrome, Edge, Firefox, etc.).
+4. The application will open in your default web browser and is ready to use.
+--
