@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecipeSpark | Smart Recipe Finder</title>
+    
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="Explore a curated library of delicious, beginner-friendly recipes. Search by ingredients, filter by categories, save your favorites, and enjoy a seamless cooking experience in light or dark mode.">
+    <meta name="keywords" content="recipe finder, cooking, easy recipes, dinner ideas, healthy meals, food planner">
+    <meta name="author" content="RecipeSpark Development Team">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <header class="navbar" id="main-header">
+        <div class="navbar-container">
+            <!-- Logo Section -->
+            <a href="#" class="logo-area" id="logo-link" aria-label="RecipeSpark Home">
+                <img src="images/logo.png" alt="RecipeSpark Logo" class="logo-image" id="logo-img" onerror="this.src='https://placehold.co/40x40/FF6B6B/FFFFFF?text=RS'">
+                <span class="logo-text">Recipe<span class="logo-highlight">Spark</span></span>
+            </a>
+            
+            <!-- Search Bar Section -->
+            <div class="search-wrapper" id="search-container">
+                <div class="search-input-group">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="text" id="search-input" placeholder="Search recipes by name or ingredient... (Press '/' to focus)" aria-label="Search recipes">
+                    <button id="clear-search-btn" class="clear-btn hidden" aria-label="Clear search">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Actions Section (Theme Toggle) -->
+            <div class="navbar-actions">
+                <button id="theme-toggle-btn" class="theme-btn" aria-label="Toggle theme" title="Switch between dark and light mode">
+                    <!-- Sun Icon -->
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <!-- Moon Icon -->
+                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section" id="intro-hero">
+            <div class="hero-body">
+                <span class="badge-accent">Culinary Inspiration</span>
+                <h1 class="hero-title">Discover Delicious Recipes</h1>
+                <p class="hero-subtitle">Search by ingredients you have on hand or browse by category. Save your favorites and start cooking delicious meals instantly.</p>
+            </div>
+        </section>
+
+        <!-- Navigation Tabs Section -->
+        <nav class="view-tabs" aria-label="Recipe views">
+            <div class="tabs-container">
+                <button class="tab-button active" id="tab-browse" data-tab="browse">
+                    <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                    <span>Browse Recipes</span>
+                </button>
+                <button class="tab-button" id="tab-favorites" data-tab="favorites">
+                    <svg class="tab-icon heart-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    <span>My Favorites (<span id="favorites-count">0</span>)</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Filters Section -->
+        <section class="filters-section" id="recipe-filters">
+            <h2 class="visually-hidden">Recipe Filters</h2>
+            
+            <!-- Category Filter Row -->
+            <div class="category-filters-container">
+                <span class="filter-label">Categories:</span>
+                <div class="categories-row" id="categories-btn-group">
+                    <button class="category-btn active" data-category="all" id="btn-cat-all">
+                        <span class="cat-icon">🍽️</span> All Recipes
+                    </button>
+                    <button class="category-btn" data-category="Breakfast" id="btn-cat-breakfast">
+                        <span class="cat-icon">🍳</span> Breakfast
+                    </button>
+                    <button class="category-btn" data-category="Lunch" id="btn-cat-lunch">
+                        <span class="cat-icon">🥗</span> Lunch
+                    </button>
+                    <button class="category-btn" data-category="Dinner" id="btn-cat-dinner">
+                        <span class="cat-icon">🥘</span> Dinner
+                    </button>
+                    <button class="category-btn" data-category="Snacks" id="btn-cat-snacks">
+                        <span class="cat-icon">🍿</span> Snacks
+                    </button>
+                    <button class="category-btn" data-category="Desserts" id="btn-cat-desserts">
+                        <span class="cat-icon">🍰</span> Desserts
+                    </button>
+                </div>
+            </div>
+
+            <!-- Active Filters Indicators -->
+            <div class="active-filters-bar hidden" id="active-filters-info">
+                <div class="active-pills" id="pills-container">
+                    <!-- Pills dynamically added by JS -->
+                </div>
+                <button class="reset-all-btn" id="reset-filters-link">Clear All Filters</button>
+            </div>
+        </section>
+
+        <!-- Recipes Grid Display -->
+        <section class="recipe-display-area">
+            <h2 id="section-display-heading" class="section-title">All Recipes</h2>
+            
+            <div class="recipe-grid" id="recipe-cards-grid">
+                <!-- Recipe Cards rendered dynamically via JS -->
+            </div>
+
+            <!-- Empty State Container -->
+            <div class="empty-state hidden" id="empty-state-view">
+                <div class="empty-icon-container">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 12h20"></path>
+                        <path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8"></path>
+                        <path d="m4 8 2-4h12l2 4H4Z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                </div>
+                <h3 class="empty-title" id="empty-title-text">No Recipes Found</h3>
+                <p class="empty-subtitle" id="empty-desc-text">We couldn't find any recipes matching your current filters or search terms. Try adjusting them!</p>
+                <button class="btn-primary" id="empty-action-btn">Browse All Recipes</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 RecipeSpark. Developed with modern Vanilla JS &amp; CSS Grid/Flexbox.</p>
+            <p class="footer-subtext">Perfect for interviews. Clean code, semantic structure, zero dependencies.</p>
+        </div>
+    </footer>
+
+    <!-- Recipe Detail Modal -->
+    <div class="modal-overlay hidden" id="recipe-detail-modal" role="dialog" aria-modal="true" aria-labelledby="modal-recipe-name">
+        <div class="modal-wrapper">
+            <!-- Modal Close button -->
+            <button class="modal-close-btn" id="modal-close-trigger" aria-label="Close modal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            
+            <!-- Modal Content -->
+            <div class="modal-content-container">
+                <!-- Top Header Section (Image & Floating Details) -->
+                <div class="modal-header-banner">
+                    <img id="modal-recipe-image" src="" alt="" onerror="this.src='images/default-recipe.png'">
+                    <div class="modal-header-overlay">
+                        <span id="modal-recipe-category" class="category-pill">Category</span>
+                        <h2 id="modal-recipe-name" class="modal-title">Recipe Name</h2>
+                    </div>
+                    <!-- Favorite button floating in modal -->
+                    <button class="modal-fav-btn" id="modal-fav-toggle" aria-label="Add to favorites">
+                        <svg class="heart-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Split Columns Layout (Desktop) -->
+                <div class="modal-body-columns">
+                    <!-- Column 1: Info Bar & Ingredients -->
+                    <div class="modal-col-left">
+                        <!-- Quick Stats Bar -->
+                        <div class="modal-quick-stats">
+                            <div class="stat-card">
+                                <span class="stat-icon">⏱️</span>
+                                <div class="stat-info">
+                                    <span class="stat-val" id="modal-prep-time">10m</span>
+                                    <span class="stat-lbl">Prep Time</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">🍳</span>
+                                <div class="stat-info">
+                                    <span class="stat-val" id="modal-cook-time">15m</span>
+                                    <span class="stat-lbl">Cook Time</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">⚡</span>
+                                <div class="stat-info">
+                                    <span class="stat-val" id="modal-difficulty">Easy</span>
+                                    <span class="stat-lbl">Difficulty</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">🍽️</span>
+                                <div class="stat-info">
+                                    <span class="stat-val" id="modal-servings">4</span>
+                                    <span class="stat-lbl">Servings</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Ingredients checklist -->
+                        <div class="ingredients-box">
+                            <h3 class="modal-section-title">Ingredients</h3>
+                            <p class="modal-section-subtitle">Check items as you shop or prepare</p>
+                            <ul class="ingredients-list" id="modal-ingredients-list">
+                                <!-- Dynamically generated checkbox items -->
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 2: Preparation Steps -->
+                    <div class="modal-col-right">
+                        <div class="steps-box">
+                            <h3 class="modal-section-title">Cooking Instructions</h3>
+                            <ol class="instructions-steps-list" id="modal-instructions-steps">
+                                <!-- Dynamically generated ordered items -->
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/recipes.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
