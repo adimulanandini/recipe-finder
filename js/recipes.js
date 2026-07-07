@@ -578,7 +578,7 @@ const RECIPES_DATA = [
   {
     id: 22,
     name: "Veg Hakka Noodles",
-    category: "Main Course",
+    category: "Snacks",
     prepTime: "15 mins",
     cookTime: "15 mins",
     difficulty: "Easy",
